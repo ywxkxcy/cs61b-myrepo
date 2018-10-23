@@ -117,8 +117,8 @@ public class LinkedListDeque<Type> {
         return traverse(n.next, --i); // test if i - 1 is the same as --i --> Yes, they are the same
     }
 
-    /**  Dummy main function for test.
-     *
+    /**
+     *Dummy main function for test.
      * */
     public static void main(String[] args) {
         LinkedListDeque<Integer> Dllist = new LinkedListDeque<>();

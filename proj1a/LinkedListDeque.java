@@ -9,7 +9,7 @@
  * When should I use “this” in a class?
  * https://stackoverflow.com/questions/2411270/when-should-i-use-this-in-a-class
  */
-public class LinkedListDeque<Type> {
+public class LinkedListDeque<Type> { // this part was not explained in detail in the lecture
     /* private helper method for LinkedListDeque */
     private class ListNode {
         private Type item; // why private?
@@ -50,7 +50,7 @@ public class LinkedListDeque<Type> {
     }
 
     public boolean isEmpty() {
-        return (size ==  0); // What if I do not use this. here?
+        return (size ==  0); // What if I do not use this. here? --> same as this.size!
     }
 
     public int size() {
@@ -59,13 +59,16 @@ public class LinkedListDeque<Type> {
 
     /*  Prints the items in the deque from first to last, separated by a space. */
     public void printDeque() {
+        /* It is okay if we use ListNode p = sentinel or this one 只是多了个遥控器，指向的其实是同一个东西 */
         ListNode p = new ListNode(null, null, sentinel.next); // Just a test here ! It works!
+        /* 因为这是一个环形的list，所以当头遇到尾巴的时候loop结束 */
         while (p.next != sentinel) {
             System.out.print(p.next.item + " ");
-            p.next = p.next.next;
+            p.next = p.next.next; //Linked List 的标准操作
         }
     }
 
+    /* 下面两个method的原理相同，都是改变了一下指针指向的位置，把后面一个赋给了前面一个 */
     public Type removeFirst() {
         if (size == 0) {
             return null;
@@ -89,7 +92,7 @@ public class LinkedListDeque<Type> {
     }
 
     public Type getIterative(int index) {
-        ListNode p = sentinel.next; // think about the image of a box and a bypass address
+        ListNode p = sentinel.next; // think about the image of a box and a  address！
         while (p != sentinel) {
             if(index == 0) {
                 return p.item;
@@ -101,15 +104,16 @@ public class LinkedListDeque<Type> {
         return null;
     }
 
-    /* 因为只给了一个index，参数里面没有ListNode，无法recursion，所以只能用helper method来实现 */
+    /* 因为只给了一个index，参数里面没有ListNode，无法recursion，所以只能用helper method来实现*/
     public Type getRecursive(int index) {
-        if (index > size -1) {
+        if (index > size - 1) {
             return null;
         } else {
             return traverse(sentinel.next, index);
         }
     }
 
+    /* helper method of getRecursive(int index) to include ListNode 类比之前课上的example --> size() */
     public Type traverse(ListNode n, int i) {
         if (i == 0) {
             return n.item;
@@ -118,7 +122,7 @@ public class LinkedListDeque<Type> {
     }
 
     /**
-     *Dummy main function for test.
+     *  Dummy main function for test.
      * */
     public static void main(String[] args) {
         LinkedListDeque<Integer> Dllist = new LinkedListDeque<>();

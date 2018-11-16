@@ -1,6 +1,7 @@
 public class LinkedListDeque<Type> implements  Deque<Type>{
     /* private helper method for LinkedListDeque */
     private class ListNode {
+
         private Type item; // why private?
         private ListNode pre; //it is different form SLList as the project required
         private ListNode next;
@@ -111,7 +112,7 @@ public class LinkedListDeque<Type> implements  Deque<Type>{
     }
 
     /* helper method of getRecursive(int index) to include ListNode 类比之前课上的example --> size() */
-    public Type traverse(ListNode n, int i) {
+    private Type traverse(ListNode n, int i) {
         if (i == 0) {
             return n.item;
         }

@@ -1,3 +1,4 @@
+/** offByOne is a comparator. Return true if the two letters are besides. */
 public class OffByOne implements CharacterComparator{
 
     @Override

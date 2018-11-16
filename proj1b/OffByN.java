@@ -1,3 +1,4 @@
+/** offByN is a comparator. Return true if the two letters are off by N letter. */
 public class OffByN implements CharacterComparator{
 
     private int N;

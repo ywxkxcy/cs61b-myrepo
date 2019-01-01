@@ -1,3 +1,2 @@
 // This is the second test of git branch
-def add()
-	pass
+// This test means we are trying to merge this file 
